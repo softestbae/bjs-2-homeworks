@@ -1,7 +1,8 @@
 "use strict"
+
 function solveEquation(a, b, c) {
   let arr = [];
-  let countD = b**2-4*a*c
+  let countD = b**2-4*a*c;
 
   if (countD < 0) {
     return arr;
@@ -21,6 +22,16 @@ function solveEquation(a, b, c) {
   }
 }
 
+solveEquation(a, b, c);
+
 function calculateTotalMortgage(percent, contribution, amount, countMonths) {
-  
+  let coeff = percent / 100 / 12;
+  let creditBody = amount - contribution;
+  let monthPayment = creditBody * (coeff + (coeff /(((1 + coeff)**countMonths)-1)));
+  let total = monthPayment * countMonths + contribution;
+  let roundedTotal =  parseFloat(total.toFixed(2));
+
+  return roundedTotal;
 }
+
+calculateTotalMortgage(percent, contribution, amount, countMonths);
