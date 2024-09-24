@@ -1,5 +1,5 @@
 function getArrayParams(...arr) {
-  let min = Math.min(...arr); 
+  let max = Math.max(...arr); 
   let min = Math.min(...arr); 
   let sum = 0;
   for (let i = 0; i < arr.length; i++) {
