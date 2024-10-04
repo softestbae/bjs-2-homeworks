@@ -15,24 +15,18 @@ Student.prototype.setSubject = function (subjectName) {
 }
 
 Student.prototype.addMarks = function (...marks) {
-    if(this.marks && !this.excluded) {
+    if(this.marks) {
         this.marks.push(...marks);
       }
 }
 
 Student.prototype.getAverage = function () {
-  if(this.marks.length === 0) {
+  if(!this.marks || this.marks.length === 0) {
     return 0;
   }
-  else {
-    let sum = 0;
-    let count = 0;
-    for(let i = 0; i < this.marks.length; i++) {
-        sum += this.marks[i];
-        count += 1;
-    }
-    return sum / count;
-  }
+  let sum = this.marks.reduce((acc, item) => {
+    return acc + item}, 0)
+  return sum / this.marks.length;
 }
 
 Student.prototype.exclude = function (reason) {
