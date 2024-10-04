@@ -77,11 +77,12 @@ class Library {
 
     findBookBy(type, value) {
         for(let i = 0; i < this.books.length; i++) {
-            if(books[i].hasOwnProperty(type) && books[i].[type] === value)
+          if(books[i].hasOwnProperty(type) && books[i][type] === value) {
                 return books[i];
         }
-        else {
+          else {
             return null;
+          }
         }
     }
 
