@@ -18,26 +18,24 @@ addClock (time, callback) {
 
 removeClock(time) {
     this.alarmCollection = this.alarmCollection.filter(element => element.time !== time);
-    return this.alarmCollection;
 }
 
 getCurrentFormattedTime() {
-    const date = new Date().toLocaleTimeString("ru-Ru", {
+    return new Date().toLocaleTimeString("ru-Ru", {
         hour: "2-digit",
         minute: "2-digit",
       });
-    return date;
 }
 
-start(intervalId) {
+start() {
     if(this.intervalId) {
         return;
     }
     
-    this.intervalId = setInterval(startAlarm(() => {
+    this.intervalId = setInterval((() => {
         this.alarmCollection.forEach((element) => {
             if(element.time === this.getCurrentFormattedTime() && element.canCall === true) {
-                this.canCall = false;
+                element.canCall = false;
                 element.callback();
             }
          })
