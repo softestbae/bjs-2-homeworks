@@ -35,12 +35,21 @@ class Triangle {
     }
 }
 
+const perimeterAndArea = {
+    get newPerimeter() {
+        return 'Ошибка! Треугольник не существует';
+    }
+
+    get newArea() {
+        return'Ошибка! Треугольник не существует';
+    }
+}
+
 function getTriangle(side1, side2, side3) {
     try { 
         return new Triangle(side1, side2, side3);     
     } 
     catch(error) { 
-        return  new PerimeterAndArea(perimeter, area);
-        console.log('Ошибка! Треугольник не существует');
+        return perimeterAndArea;
     }
 }
