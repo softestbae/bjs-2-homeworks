@@ -36,11 +36,11 @@ class Triangle {
 }
 
 const perimeterAndArea = {
-    get newPerimeter() {
+    get perimeter() {
         return 'Ошибка! Треугольник не существует';
-    }
+    },
 
-    get newArea() {
+    get area() {
         return'Ошибка! Треугольник не существует';
     }
 }
