@@ -9,7 +9,7 @@ addClock (time, callback) {
     if(!time || !callback) {
         throw new Error('Отсутствуют обязательные аргументы');
     }
-    else if(this.alarmCollection.includes(time)) {
+    else if(this.alarmCollection.some(callback)) {
         console.warn('Уже присутствует звонок на это же время');
     }
 
@@ -59,3 +59,4 @@ clearAlarms() {
     this.alarmCollection = [];
 }
 }
+
