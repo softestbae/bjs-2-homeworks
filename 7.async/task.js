@@ -9,8 +9,8 @@ addClock (time, callback) {
     if(!time || !callback) {
         throw new Error('Отсутствуют обязательные аргументы');
     }
-    else if(this.alarmCollection.some((i) => {
-            if(time === this.alarmCollection[i].time) {
+    else if(this.alarmCollection.some((element) => {
+            if(time === this.alarmCollection.time) {
                 return false;
             }
         return true;
